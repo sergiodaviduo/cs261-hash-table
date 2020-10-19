@@ -10,7 +10,7 @@ class HashTable:
     def __init__(self, size=10):
         self.size = size
         for x in range(0,self.size):
-            self.data.append(None)
+            self.data.append([])
 
     def __getitem__(self, item):
         return self.hash(item)
