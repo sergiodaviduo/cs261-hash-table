@@ -19,7 +19,10 @@ class HashTable:
             return None
 
         key = self.hash(item) % self.size
-        return self.data[key]
+        ret = self.data[key]
+        ret1 = ret[0]
+        ret2 = ret1[1]
+        return ret2
 
     def __setitem__(self, key, value):
         self.data[self.hash(key)] = [[key,value]]
