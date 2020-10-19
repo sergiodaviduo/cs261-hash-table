@@ -25,7 +25,10 @@ class HashTable:
         return ret2
 
     def __setitem__(self, key, value):
-        self.data[self.hash(key)] = [[key,value]]
+        if(self.data[self.hash(key)] == []):
+            self.data[self.hash(key)] = [[key, value]]
+        else:
+            self.data[self.hash(key)].append([key, value])
 
     def hash(self, key):
         out = None
