@@ -13,12 +13,12 @@ class HashTable:
             self.data.append([])
 
     def __getitem__(self, item):
-        print('test')
+        print('testget')
         print(self.hash(item))
         if(self.data[self.hash(item)] == []):
             return None
 
-        key = self.hash(item) % self.size
+        key = self.hash(item)
         ret = self.data[key]
         ret1 = ret[0]
         ret2 = ret1[1]
@@ -38,5 +38,11 @@ class HashTable:
             out = key
 
         return out % self.size
+
+    def delete(self, instance):
+        if (self.data[self.hash(instance)] == []):
+            return None
+        key = self.hash(instance)
+        self.data[key] = []
 
     pass
