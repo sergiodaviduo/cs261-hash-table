@@ -9,11 +9,22 @@ class HashTable:
 
     def __init__(self, size=10):
         self.size = size
+        for x in range(0,self.size):
+            self.data.append(None)
 
     def __getitem__(self, item):
-        return self.data[item]
+        return self.hash(item)
 
     def __setitem__(self, key, value):
-        self.data.append({key: value})
+        self.data.append(hash(key),value)
+
+    def hash(self, key):
+        out = None
+        if(type(key) == str):
+            out = hash(key)
+        else:
+            out = key
+
+        return out % self.size
 
     pass
