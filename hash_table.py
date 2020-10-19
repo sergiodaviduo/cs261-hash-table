@@ -6,6 +6,7 @@
 
 class HashTable:
     data = []
+    key_list = []
 
     def __init__(self, size=10):
         self.size = size
@@ -27,8 +28,10 @@ class HashTable:
     def __setitem__(self, key, value):
         if(self.data[self.hash(key)] == []):
             self.data[self.hash(key)] = [[key, value]]
+            self.key_list.append(key)
         else:
             self.data[self.hash(key)].append([key, value])
+            self.key_list.append(key)
 
     def hash(self, key):
         out = None
@@ -50,5 +53,5 @@ class HashTable:
             self.data[x] = []
 
     def keys(self):
-        return []
+        return self.key_list
     pass
