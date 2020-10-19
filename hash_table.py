@@ -49,4 +49,6 @@ class HashTable:
         for x in range(0,self.size):
             self.data[x] = []
 
+    def keys(self):
+        return []
     pass
