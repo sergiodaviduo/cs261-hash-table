@@ -13,10 +13,16 @@ class HashTable:
             self.data.append([])
 
     def __getitem__(self, item):
-        return self.hash(item)
+        print('test')
+        print(self.hash(item))
+        if(self.data[self.hash(item)] == []):
+            return None
+
+        key = self.hash(item) % self.size
+        return self.data[key]
 
     def __setitem__(self, key, value):
-        self.data.append(hash(key),value)
+        self.data[self.hash(key)] = [[key,value]]
 
     def hash(self, key):
         out = None
