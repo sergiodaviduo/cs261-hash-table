@@ -45,4 +45,8 @@ class HashTable:
         key = self.hash(instance)
         self.data[key] = []
 
+    def clear(self):
+        for x in range(0,self.size):
+            self.data[x] = []
+
     pass
